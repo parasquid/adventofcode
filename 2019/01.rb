@@ -34,9 +34,9 @@
 inputs = DATA.read.split("\n").map(&:to_i)
 
 def fuel_required(mass)
-  fuel = mass.div(3) - 2
-  return 0 if fuel <= 0
+  return 0 if mass <= 0 # terminal condition
 
+  fuel = mass.div(3) - 2
   fuel + fuel_required(fuel)
 end
 
